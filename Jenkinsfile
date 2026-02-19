@@ -27,8 +27,8 @@ pipeline {
                             reuseNode true
                         }
                     }
-                    steps {
-                        // Unit tests with Vitest
+                     steps {
+                        sh 'npm ci'
                         sh 'npx vitest run --reporter=verbose'
                     }
                 }
@@ -40,6 +40,7 @@ pipeline {
                         }
                     }
                     steps {
+                        sh 'npm ci'
                         // Integration tests with Playwright
                         sh 'npx playwright test'
                     }
